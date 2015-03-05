@@ -3,10 +3,10 @@ var request = require("request");
 var Search = function (serviceName, apiKey) {
     this.serviceName = serviceName;
     this.apiKey = apiKey;
-    this.apiVersion = "2014-10-20-Preview";
+    this.apiVersion = "2015-02-28";
 };
 
-Search.prototype.createDataSource = function (dataSourceName, docDbName, docDbKey, docDbDatabase, docDbCollection, callback) {
+Search.prototype.createDataSource = function (dataSourceName, docDbEndpoint, docDbKey, docDbDatabase, docDbCollection, callback) {
     request({
             method: "PUT",
             uri: "https://" + this.serviceName + ".search.windows.net/datasources/" + dataSourceName + "?api-version=" + this.apiVersion,
@@ -18,7 +18,7 @@ Search.prototype.createDataSource = function (dataSourceName, docDbName, docDbKe
                 "name": dataSourceName,
                 "type": "documentdb",
                 "credentials": {
-                    "connectionString": "AccountName=" + docDbName + ";AuthKey=" + docDbKey + ";DatabaseId=" + docDbDatabase
+                    "connectionString": "AccountEndpoint=" + docDbEndpoint + ";AccountKey=" + docDbKey + ";Database=" + docDbDatabase
                 },
                 "container": {
                     "name": docDbCollection
