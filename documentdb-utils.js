@@ -2,6 +2,7 @@
 "use strict";
 
 // Common utility functions to work with DocumentDB.
+// For more info, check out: https://github.com/Azure/azure-documentdb-node
 var DocDBUtils = {
   getOrCreateDatabase: function (client, databaseId, callback) {
     var query = {
