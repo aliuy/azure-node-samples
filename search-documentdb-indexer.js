@@ -4,6 +4,7 @@
 var request = require("request");
 
 // REST API wrappers to create Azure Search + DocumentDB indexers.
+// For more info, check out: http://azure.microsoft.com/en-us/documentation/articles/documentdb-search-indexer/
 var Search = function (serviceName, apiKey) {
     this.serviceName = serviceName;
     this.apiKey = apiKey;
